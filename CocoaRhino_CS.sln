@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocoaRhino_CS", "CocoaRhino_CS.csproj", "{28DC9377-8376-464E-97EC-7BBB21A1A5F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugStarterExe", "DebugStarterExe\DebugStarterExe.csproj", "{B41B4353-8D26-4DB7-8B7A-F0106EED3866}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28DC9377-8376-464E-97EC-7BBB21A1A5F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28DC9377-8376-464E-97EC-7BBB21A1A5F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28DC9377-8376-464E-97EC-7BBB21A1A5F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28DC9377-8376-464E-97EC-7BBB21A1A5F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B41B4353-8D26-4DB7-8B7A-F0106EED3866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B41B4353-8D26-4DB7-8B7A-F0106EED3866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B41B4353-8D26-4DB7-8B7A-F0106EED3866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B41B4353-8D26-4DB7-8B7A-F0106EED3866}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = CocoaRhino_CS.csproj
+	EndGlobalSection
+EndGlobal
