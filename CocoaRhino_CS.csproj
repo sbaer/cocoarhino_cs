@@ -14,16 +14,21 @@
     <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
+    <OutputPath>..\..\..\..\Library\Application Support\McNeel\Rhinoceros\MacPlugIns\CocoaRhino_CS</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="python monobuild.py ${TargetFile}" />
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>True</Optimize>
-    <OutputPath>bin\Release</OutputPath>
+    <OutputPath>..\..\..\..\Library\Application Support\McNeel\Rhinoceros\MacPlugIns\CocoaRhino_CS</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
@@ -39,6 +44,8 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="CocoaRhinoPlugIn.cs" />
     <Compile Include="TestCocoaRhinoCS.cs" />
+    <Compile Include="UnsafeNativeMethods.cs" />
+    <Compile Include="DNWindowController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
