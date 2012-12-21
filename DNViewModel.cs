@@ -6,19 +6,14 @@ namespace CocoaRhino_CS
 {
   public class DNViewModel : ViewModelBase
   {
-    const string _Check1Name = "check1";
-    const string _Check2Name = "check2";
-    const string _Check3Name = "check3";
-    const string _PushMeName = "pushme";
+    bool m_check1 = false;
+    bool m_check2 = true;
+    bool m_check3 = false;
 
     public DNViewModel() : base("DNWindow")
     {
     }
-    
 
-    bool m_check1 = false;
-    bool m_check2 = true;
-    bool m_check3 = false;
     public bool check1
     {
       get
@@ -68,28 +63,21 @@ namespace CocoaRhino_CS
     }
     
     static int pushmeIdx=0;
-    public void PerformAction(string name)
+    public void pushme()
     {
-      if( name==_PushMeName )
-      {
-        // Toggle the value of one of the check boxes
-        if (++pushmeIdx > 3)
-          pushmeIdx = 1;
-        if (pushmeIdx == 1) {
-          check1 = !check1;
-        }
-        if (pushmeIdx == 2) {
-          check2 = !check2;
-        }
-        if (pushmeIdx == 3) {
-          check3 = !check3;
-        }
+      // Toggle the value of one of the check boxes
+      if (++pushmeIdx > 3)
+        pushmeIdx = 1;
+      if (pushmeIdx == 1) {
+        check1 = !check1;
+      }
+      if (pushmeIdx == 2) {
+        check2 = !check2;
+      }
+      if (pushmeIdx == 3) {
+        check3 = !check3;
       }
     }
-    
-    
-    
-    
   }
 }
 

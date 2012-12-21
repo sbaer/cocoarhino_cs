@@ -12,18 +12,22 @@ namespace CocoaRhino_CS
     protected ViewModelBase(string windowName)
     {
       WindowName = windowName;
-
       UnsafeNativeMethods.RUI_RegisterBoolCallbacks(m_getbool_callback, m_setbool_callback);
       UnsafeNativeMethods.RUI_RegisterActionCallback(m_perform_action);
-      m_handle = UnsafeNativeMethods.RUI_CreateWindow(WindowName);
-      m_all_controllers.Add(m_handle, this);
     }
 
     public string WindowName { get; private set; }
 
     public void ShowModal()
     {
+      if( m_handle==IntPtr.Zero )
+      {
+        m_handle = UnsafeNativeMethods.RUI_CreateWindow(WindowName);
+        m_all_controllers.Add(m_handle, this);
+      }
       UnsafeNativeMethods.RUI_ShowModalWindow(m_handle);
+      m_all_controllers.Remove(m_handle);
+      m_handle = IntPtr.Zero;
     }
 
 
@@ -90,10 +94,9 @@ namespace CocoaRhino_CS
       if( m_all_controllers.ContainsKey(handle) )
       {
         var item = m_all_controllers[handle];
-        var method = item.GetType().GetMethod("PerformAction");
+        var method = item.GetType().GetMethod(name);
         if( method!=null )
-          method.Invoke(item, new object[]{name});
-        //item.PerformAction(name);
+          method.Invoke(item, null);
       }
     }
 

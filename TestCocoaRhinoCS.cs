@@ -8,8 +8,8 @@ namespace CocoaRhino_CS
 
     protected override Rhino.Commands.Result RunCommand (Rhino.RhinoDoc doc, Rhino.Commands.RunMode mode)
     {
-      var controller = new DNViewModel();
-      controller.ShowModal();
+      var vm = new DNViewModel();
+      vm.ShowModal();
       return Rhino.Commands.Result.Success;
     }
   }
