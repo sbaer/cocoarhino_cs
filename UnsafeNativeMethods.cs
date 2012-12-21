@@ -9,11 +9,11 @@ namespace CocoaRhino_CS
     const string nativelib = "__Internal";
     
     [DllImport(nativelib, CallingConvention = CallingConvention.Cdecl)]
-    public static extern void RUI_RegisterBoolCallbacks(DNWindowController.GetBoolValueCallback getFunc,
-                                                        DNWindowController.SetBoolValueCallback setFunc);
+    public static extern void RUI_RegisterBoolCallbacks(ViewModelBase.GetBoolValueCallback getFunc,
+                                                        ViewModelBase.SetBoolValueCallback setFunc);
     
     [DllImport(nativelib, CallingConvention = CallingConvention.Cdecl)]
-    public static extern void RUI_RegisterActionCallback (DNWindowController.PerformActionCallback actionFunc);
+    public static extern void RUI_RegisterActionCallback (ViewModelBase.PerformActionCallback actionFunc);
     
     [DllImport(nativelib, CallingConvention = CallingConvention.Cdecl)]
     public static extern IntPtr RUI_CreateWindow([MarshalAs(UnmanagedType.LPWStr)]string nib);

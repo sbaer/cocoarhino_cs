@@ -45,7 +45,8 @@
     <Compile Include="CocoaRhinoPlugIn.cs" />
     <Compile Include="TestCocoaRhinoCS.cs" />
     <Compile Include="UnsafeNativeMethods.cs" />
-    <Compile Include="DNWindowController.cs" />
+    <Compile Include="DNViewModel.cs" />
+    <Compile Include="ViewModelBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
