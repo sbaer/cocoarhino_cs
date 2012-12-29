@@ -22,6 +22,7 @@
     <CustomCommands>
       <CustomCommands>
         <Command type="AfterBuild" command="python monobuild.py ${TargetFile}" />
+        <Command type="BeforeBuild" command="ibtool --compile &quot;${TargetDir}/CocoaRhinoWindow.nib&quot;  &quot;${ProjectDir}/CocoaRhinoWindow.xib&quot;" workingdir="" />
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>
@@ -49,4 +50,7 @@
     <Compile Include="ViewModelBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="CocoaRhinoWindow.xib" />
+  </ItemGroup>
 </Project>
