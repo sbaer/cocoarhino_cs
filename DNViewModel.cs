@@ -61,7 +61,24 @@ namespace CocoaRhino_CS
         }
       }
     }
-    
+
+    string m_text = "import rhinoscriptsyntax as rs";
+    public string text
+    {
+      get
+      {
+        return m_text;
+      }
+      set
+      {
+        if( m_text!=value )
+        {
+          m_text = value;
+          OnPropertyChanged("text");
+        }
+      }
+    }
+
     static int pushmeIdx=0;
     public void pushme()
     {
