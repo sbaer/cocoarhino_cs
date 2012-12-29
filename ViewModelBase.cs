@@ -20,9 +20,14 @@ namespace CocoaRhino_CS
 
     public void ShowModal()
     {
+      string ass_loc = GetType().Assembly.Location;
+      string ass_dir = System.IO.Path.GetDirectoryName(ass_loc);
+      string nib = System.IO.Path.Combine(ass_dir, "CocoaRhinoWindow.nib");
+    
+
       if( m_handle==IntPtr.Zero )
       {
-        m_handle = UnsafeNativeMethods.RUI_CreateWindow(WindowName);
+        m_handle = UnsafeNativeMethods.RUI_CreateWindow(nib);
         m_all_controllers.Add(m_handle, this);
       }
       UnsafeNativeMethods.RUI_ShowModalWindow(m_handle);
