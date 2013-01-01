@@ -12,7 +12,12 @@ DebugStarterExe/bin/Debug/DebugStarterExe.exe
 DebugStarterExe/bin/Debug/DebugStarterExe.exe.mdb
 
 CocoaRhino_CS.userprefs
+<<<<<<< HEAD
 
 .DS_Store
 
 CocoaRhinoWindow.nib
+=======
+/wpf_sample/obj
+/wpf_sample/bin
+>>>>>>> added WPF sample that works the same as the OSX plug-in
