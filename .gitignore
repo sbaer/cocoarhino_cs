@@ -12,5 +12,8 @@ DebugStarterExe/bin/Debug/DebugStarterExe.exe
 DebugStarterExe/bin/Debug/DebugStarterExe.exe.mdb
 
 CocoaRhino_CS.userprefs
+
 /wpf_sample/obj
 /wpf_sample/bin
+.DS_Store
+CocoaRhinoWindow.nib
