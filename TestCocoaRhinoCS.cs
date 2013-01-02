@@ -10,7 +10,7 @@ namespace CocoaRhino_CS
     {
       /*
       // Seems like the following would be a good SDK for working with windows in nibs
-      var win = WindowFromNib("CocoaRhinoWindow.nib");
+      var win = RhinoMac.RhinoWindow.WindowFromNib("CocoaRhinoWindow.nib");
       win.DataContext = new DNViewModel();
       win.ShowModal();
       */
