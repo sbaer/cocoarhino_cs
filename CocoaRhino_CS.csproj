@@ -48,6 +48,7 @@
     <Compile Include="UnsafeNativeMethods.cs" />
     <Compile Include="DNViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="RhinoWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
