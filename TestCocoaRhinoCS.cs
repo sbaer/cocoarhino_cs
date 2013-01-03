@@ -8,15 +8,13 @@ namespace CocoaRhino_CS
 
     protected override Rhino.Commands.Result RunCommand (Rhino.RhinoDoc doc, Rhino.Commands.RunMode mode)
     {
-      /*
-      // Seems like the following would be a good SDK for working with windows in nibs
-      var win = RhinoMac.RhinoWindow.WindowFromNib("CocoaRhinoWindow.nib");
-      win.DataContext = new DNViewModel();
+      //IntPtr pController = RhinoMac.RhinoWindow.CreateController("CocoaRhinoWindow.nib", new DNViewModel());
+      //var ctrl = new RhinoMac.AppKit.NSWindowController(pController);
+      //ctrl.ShowWindow(ctrl);
+      var win = RhinoMac.RhinoWindow.FromNib("CocoaRhinoWindow.nib", new DNViewModel());
+      win.Title = "Nice!!!";
       win.ShowModal();
-      */
 
-      var vm = new DNViewModel();
-      vm.ShowModal();
       return Rhino.Commands.Result.Success;
     }
   }
