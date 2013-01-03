@@ -10,7 +10,7 @@ namespace CocoaRhino_CS
     bool m_check2 = true;
     bool m_check3 = false;
 
-    public DNViewModel() : base("DNWindow")
+    public DNViewModel()
     {
     }
 

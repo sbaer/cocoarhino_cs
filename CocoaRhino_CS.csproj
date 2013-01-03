@@ -25,6 +25,7 @@
         <Command type="BeforeBuild" command="ibtool --compile &quot;${TargetDir}/CocoaRhinoWindow.nib&quot;  &quot;${ProjectDir}/CocoaRhinoWindow.xib&quot;" workingdir="" />
       </CustomCommands>
     </CustomCommands>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -33,6 +34,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -40,18 +42,44 @@
       <HintPath>References\RhinoCommon.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="CocoaRhinoPlugIn.cs" />
     <Compile Include="TestCocoaRhinoCS.cs" />
-    <Compile Include="UnsafeNativeMethods.cs" />
     <Compile Include="DNViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
-    <Compile Include="RhinoWindow.cs" />
+    <Compile Include="RhinoMac\RhinoWindow.cs" />
+    <Compile Include="RhinoMac\Interop.cs" />
+    <Compile Include="RhinoMac\AppKit\NSWindow.cs" />
+    <Compile Include="RhinoMac\Foundation\NSString.cs" />
+    <Compile Include="RhinoMac\UnsafeNativeMethods.cs" />
+    <Compile Include="RhinoMac\Foundation\NSObject.cs" />
+    <Compile Include="RhinoMac\ObjCRuntime\Selector.cs" />
+    <Compile Include="RhinoMac\ObjCRuntime\Messaging.cs" />
+    <Compile Include="RhinoMac\ObjCRuntime\Runtime.cs" />
+    <Compile Include="RhinoMac\ObjCRuntime\Class.cs" />
+    <Compile Include="RhinoMac\RequiredFrameworkAttribute.cs" />
+    <Compile Include="RhinoMac\AppKit\Enums.cs" />
+    <Compile Include="RhinoMac\Foundation\ExportAttribute.cs" />
+    <Compile Include="RhinoMac\ObjCRuntime\ArgumentSemantic.cs" />
+    <Compile Include="RhinoMac\ObjCRuntime\INativeObject.cs" />
+    <Compile Include="RhinoMac\Foundation\NSAction.cs" />
+    <Compile Include="RhinoMac\Foundation\NSObject.g.cs" />
+    <Compile Include="RhinoMac\Foundation\PreserveAttribute.cs" />
+    <Compile Include="RhinoMac\Foundation\RegisterAttribute.cs" />
+    <Compile Include="RhinoMac\AppKit\NSResponder.g.cs" />
+    <Compile Include="RhinoMac\AppKit\NSWindowController.g.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="CocoaRhinoWindow.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="RhinoMac\" />
+    <Folder Include="RhinoMac\AppKit\" />
+    <Folder Include="RhinoMac\Foundation\" />
+    <Folder Include="RhinoMac\ObjCRuntime\" />
   </ItemGroup>
 </Project>
