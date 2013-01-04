@@ -14,7 +14,7 @@
     <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
-    <OutputPath>..\..\..\..\Library\Application Support\McNeel\Rhinoceros\MacPlugIns\CocoaRhino_CS</OutputPath>
+    <OutputPath>..\..\..\..\Library\Application Support\McNeel\Rhinoceros\MacPlugIns\CocoaRhino_CS\CocoaRhino_CS.rhp\Contents\Mono</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -22,7 +22,6 @@
     <CustomCommands>
       <CustomCommands>
         <Command type="AfterBuild" command="python monobuild.py ${TargetFile}" />
-        <Command type="BeforeBuild" command="ibtool --compile &quot;${TargetDir}/CocoaRhinoWindow.nib&quot;  &quot;${ProjectDir}/CocoaRhinoWindow.xib&quot;" workingdir="" />
       </CustomCommands>
     </CustomCommands>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
@@ -30,7 +29,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>True</Optimize>
-    <OutputPath>..\..\..\..\Library\Application Support\McNeel\Rhinoceros\MacPlugIns\CocoaRhino_CS</OutputPath>
+    <OutputPath>..\..\..\..\Library\Application Support\McNeel\Rhinoceros\MacPlugIns\CocoaRhino_CS\CocoaRhino_CS.rhp\Contents\Mono</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
@@ -74,7 +73,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <None Include="CocoaRhinoWindow.xib" />
+    <None Include="monobuild.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RhinoMac\" />
