@@ -11,8 +11,8 @@ namespace CocoaRhino_CS
       //IntPtr pController = RhinoMac.RhinoWindow.CreateController("CocoaRhinoWindow.nib", new DNViewModel());
       //var ctrl = new RhinoMac.AppKit.NSWindowController(pController);
       //ctrl.ShowWindow(ctrl);
-      var win = RhinoMac.RhinoWindow.FromNib("CocoaRhinoWindow.nib", new DNViewModel());
-      win.Title = "Nice!!!";
+      var vm = new DNViewModel();
+      var win = RhinoMac.RhinoWindow.FromNib("CocoaRhinoWindow", vm);
       win.ShowModal();
 
       return Rhino.Commands.Result.Success;

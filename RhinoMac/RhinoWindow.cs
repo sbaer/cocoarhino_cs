@@ -14,10 +14,13 @@ namespace RhinoMac
     public static RhinoWindow FromNib(string nib, INotifyPropertyChanged viewModel)
     {
       Interop.Init();
-      string ass_loc = viewModel.GetType().Assembly.Location;
-      string ass_dir = System.IO.Path.GetDirectoryName(ass_loc);
-      string nib_path = System.IO.Path.Combine(ass_dir, nib);
-      IntPtr pController = UnsafeNativeMethods.RUI_CreateWindow(nib_path);
+      var pi = Rhino.PlugIns.PlugIn.Find(viewModel.GetType().Assembly);
+
+      //string ass_loc = viewModel.GetType().Assembly.Location;
+      //string ass_dir = System.IO.Path.GetDirectoryName(ass_loc);
+      //string nib_path = System.IO.Path.Combine(ass_dir, nib);
+
+      IntPtr pController = UnsafeNativeMethods.RUI_CreateWindow(nib, pi.Id);
       if( pController==IntPtr.Zero )
         return null;
       Interop.RegisterRhinoWindowController(pController, viewModel);
@@ -32,7 +35,7 @@ namespace RhinoMac
       string ass_loc = viewModel.GetType().Assembly.Location;
       string ass_dir = System.IO.Path.GetDirectoryName(ass_loc);
       string nib_path = System.IO.Path.Combine(ass_dir, nib);
-      IntPtr pController = UnsafeNativeMethods.RUI_CreateWindow(nib_path);
+      IntPtr pController = UnsafeNativeMethods.RUI_CreateWindow(nib, Guid.Empty);
       if( pController==IntPtr.Zero )
         return IntPtr.Zero;
       Interop.RegisterRhinoWindowController(pController, viewModel);

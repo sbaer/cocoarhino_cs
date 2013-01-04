@@ -29,7 +29,7 @@ namespace RhinoMac
     public static extern void RUI_RegisterActionExistsCallback(Interop.ActionExistsCallback actionExistsFunc);
 
     [DllImport(nativelib, CallingConvention = CallingConvention.Cdecl)]
-    public static extern IntPtr RUI_CreateWindow([MarshalAs(UnmanagedType.LPWStr)]string nib);
+    public static extern IntPtr RUI_CreateWindow([MarshalAs(UnmanagedType.LPWStr)]string nib, Guid pluginId);
 
     [DllImport(nativelib, CallingConvention = CallingConvention.Cdecl)]
     public static extern void RUI_ValueChanged(IntPtr handle, [MarshalAs(UnmanagedType.LPWStr)]string value);

@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'CocoaRhino_CS' target in the 'CocoaRhino_CS' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

@@ -28,8 +28,8 @@ namespace RhinoMac
       UnsafeNativeMethods.RUI_RegisterStringCallbacks(m_getstring_callback, m_setstring_callback);
       UnsafeNativeMethods.RUI_RegisterActionCallback(m_perform_action);
       UnsafeNativeMethods.RUI_RegisterWindowWillCloseCallback(m_willclose_callback);
-      UnsafeNativeMethods.RUI_RegisterPropertyTypeCallback(m_propertytype_callback);
-      UnsafeNativeMethods.RUI_RegisterActionExistsCallback(m_actionexists_callback);
+//      UnsafeNativeMethods.RUI_RegisterPropertyTypeCallback(m_propertytype_callback);
+//      UnsafeNativeMethods.RUI_RegisterActionExistsCallback(m_actionexists_callback);
     }
     
     internal delegate int GetBoolValueCallback(IntPtr handle, [MarshalAs(UnmanagedType.LPWStr)]string name);
