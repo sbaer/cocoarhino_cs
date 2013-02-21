@@ -2,7 +2,7 @@ using System;
 
 namespace CocoaRhino_CS
 {
-  public class TestCocoaRhinoCSCommand : Rhino.Commands.Command
+  public class CocoaRhinoCommand : Rhino.Commands.Command
   {
     public override string EnglishName { get { return "TestCocoaRhinoCS"; } }
 
