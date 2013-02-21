@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
-		<string key="IBDocument.SystemVersion">12C2034</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
+		<string key="IBDocument.SystemVersion">12C60</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2844</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBNSLayoutConstraint</string>
@@ -57,6 +57,7 @@
 							<string key="NSFrame">{{300, 13}, {93, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="1064417798">
@@ -195,10 +196,10 @@
 												<string>WebURLsWithTitlesPboardType</string>
 												<string>public.url</string>
 											</set>
-											<string key="NSFrameSize">{239, 193}</string>
+											<string key="NSFrameSize">{254, 193}</string>
 											<reference key="NSSuperview" ref="844687059"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="1005491855"/>
+											<reference key="NSNextKeyView" ref="928556177"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
 											<object class="NSTextContainer" key="NSTextContainer" id="432701908">
 												<object class="NSLayoutManager" key="NSLayoutManager">
@@ -226,7 +227,7 @@
 													<nil key="NSDelegate"/>
 												</object>
 												<reference key="NSTextView" ref="490251622"/>
-												<double key="NSWidth">239</double>
+												<double key="NSWidth">254</double>
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
@@ -275,11 +276,11 @@
 											</object>
 											<int key="NSTVFlags">6</int>
 											<string key="NSMaxSize">{463, 10000000}</string>
-											<string key="NSMinize">{254, 193}</string>
+											<string key="NSMinize">{269, 193}</string>
 											<nil key="NSDelegate"/>
 										</object>
 									</array>
-									<string key="NSFrame">{{1, 1}, {254, 193}}</string>
+									<string key="NSFrame">{{1, 1}, {269, 193}}</string>
 									<reference key="NSSuperview" ref="925831177"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="490251622"/>
@@ -444,7 +445,7 @@ wGw</bytes>
 								<object class="NSScroller" id="928556177">
 									<reference key="NSNextResponder" ref="925831177"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{255, 1}, {15, 193}}</string>
+									<string key="NSFrame">{{254, 1}, {16, 193}}</string>
 									<reference key="NSSuperview" ref="925831177"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="264861295"/>
@@ -474,7 +475,7 @@ wGw</bytes>
 							<string key="NSFrame">{{116, 52}, {271, 195}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="844687059"/>
+							<reference key="NSNextKeyView" ref="1005491855"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<int key="NSsFlags">133138</int>
 							<reference key="NSVScroller" ref="928556177"/>
@@ -1023,7 +1024,7 @@ wGw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">137</int>
+			<int key="maxID">152</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
