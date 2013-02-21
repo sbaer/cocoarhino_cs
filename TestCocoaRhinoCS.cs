@@ -8,9 +8,6 @@ namespace CocoaRhino_CS
 
     protected override Rhino.Commands.Result RunCommand (Rhino.RhinoDoc doc, Rhino.Commands.RunMode mode)
     {
-      //IntPtr pController = RhinoMac.RhinoWindow.CreateController("CocoaRhinoWindow.nib", new DNViewModel());
-      //var ctrl = new RhinoMac.AppKit.NSWindowController(pController);
-      //ctrl.ShowWindow(ctrl);
       var vm = new DNViewModel();
       var win = RhinoMac.RhinoWindow.FromNib("CocoaRhinoWindow", vm);
       win.ShowModal();
