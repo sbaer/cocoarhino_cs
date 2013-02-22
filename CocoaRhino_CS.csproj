@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="CocoaRhinoPlugIn.cs" />
-    <Compile Include="TestCocoaRhinoCS.cs" />
     <Compile Include="DNViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="RhinoMac\RhinoWindow.cs" />
@@ -70,6 +69,7 @@
     <Compile Include="RhinoMac\Foundation\RegisterAttribute.cs" />
     <Compile Include="RhinoMac\AppKit\NSResponder.g.cs" />
     <Compile Include="RhinoMac\AppKit\NSWindowController.g.cs" />
+    <Compile Include="CocoaRhinoCommand.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

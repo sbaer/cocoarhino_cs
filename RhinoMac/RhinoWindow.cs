@@ -16,10 +16,6 @@ namespace RhinoMac
       Interop.Init();
       var pi = Rhino.PlugIns.PlugIn.Find(viewModel.GetType().Assembly);
 
-      //string ass_loc = viewModel.GetType().Assembly.Location;
-      //string ass_dir = System.IO.Path.GetDirectoryName(ass_loc);
-      //string nib_path = System.IO.Path.Combine(ass_dir, nib);
-
       IntPtr pController = UnsafeNativeMethods.RUI_CreateWindow(nib, pi.Id);
       if( pController==IntPtr.Zero )
         return null;
