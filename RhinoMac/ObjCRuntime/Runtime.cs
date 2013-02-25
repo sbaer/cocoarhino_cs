@@ -12,46 +12,7 @@ namespace RhinoMac.ObjCRuntime {
     static Dictionary <IntPtr, WeakReference> object_map = new Dictionary <IntPtr, WeakReference> ();
     static object lock_obj = new object ();
     static IntPtr selClass = Selector.GetHandle ("class");
-    
-    public static void RegisterAssembly (Assembly a) {
-      var attributes = a.GetCustomAttributes (typeof (RequiredFrameworkAttribute), false);
-      //string basePath = Path.Combine (AppDomain.CurrentDomain.BaseDirectory, "..");
-      string assloc = Assembly.GetExecutingAssembly().Location;
-      string assdir = Path.GetDirectoryName(assloc);
-      string basePath = Path.Combine (assdir, "..");
-      foreach (var attribute in attributes) {
-        var requiredFramework = (RequiredFrameworkAttribute)attribute;
-        string libPath;
-        string libName = requiredFramework.Name;
-        
-        if (libName.Contains (".dylib")) {
-          libPath = Path.Combine (basePath, "Resources");
-        }
-        else {
-          libPath = Path.Combine (basePath, "Frameworks");
-          libPath = Path.Combine (libPath, libName);
-          libName = libName.Replace (".frameworks", "");
-        }
-        libPath = Path.Combine (libPath, libName);
-        
-//        if (Dlfcn.dlopen (libPath, 0) == IntPtr.Zero)
-//          throw new Exception (string.Format ("Unable to load required framework: '{0}'", requiredFramework.Name),
-//                               new Exception (Dlfcn.dlerror()));
-      }
-      
-      if (assemblies == null) {
-        assemblies = new List <Assembly> ();
-        //Class.Register (typeof (NSObject));
-      }
-      
-      assemblies.Add (a);
-      
-//      foreach (Type type in a.GetTypes ()) {
-//        if (type.IsSubclassOf (typeof (NSObject)) && !Attribute.IsDefined (type, typeof (ModelAttribute), false))
-//          Class.Register (type);
- //     }
-    }
-    
+
     internal static List<Assembly> GetAssemblies () {
       if (assemblies == null) {
         var this_assembly = typeof (Runtime).Assembly.GetName ();
@@ -118,22 +79,5 @@ namespace RhinoMac.ObjCRuntime {
         return new NSObject (ptr);
       }
     }
-    /*
-    public static void ConnectMethod (MethodInfo method, Selector selector) {
-      if (method == null)
-        throw new ArgumentNullException ("method");
-      if (selector == null)
-        throw new ArgumentNullException ("selector");
-      var type = method.DeclaringType;
-      
-      if (!Class.IsCustomType (type))
-        throw new ArgumentException ("Cannot late bind methods on core types");
-      
-      var ea = new ExportAttribute (selector.Name);
-      var klass = new Class (type);
-      
-      Class.RegisterMethod (method, ea, type, klass.Handle);
-    }
-    */
   }
 }

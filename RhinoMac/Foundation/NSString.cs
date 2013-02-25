@@ -2,71 +2,20 @@ using System;
 using System.Runtime.InteropServices;
 using RhinoMac.ObjCRuntime;
 
-namespace RhinoMac.Foundation {
-  public enum NSStringEncoding : uint {
-    ASCIIStringEncoding = 1,
-    NEXTSTEP = 2,
-    JapaneseEUC = 3,
-    UTF8 = 4,
-    ISOLatin1 = 5,
-    Symbol = 6,
-    NonLossyASCII = 7,
-    ShiftJIS = 8,
-    ISOLatin2 = 9,
-    Unicode = 10,
-    WindowsCP1251 = 11,
-    WindowsCP1252 = 12,
-    WindowsCP1253 = 13,
-    WindowsCP1254 = 14,
-    WindowsCP1250 = 15,
-    ISO2022JP = 21,
-    MacOSRoman = 30,
-    UTF16BigEndian = 0x90000100,
-    UTF16LittleEndian = 0x94000100,
-    UTF32 = 0x8c000100,
-    UTF32BigEndian = 0x98000100,
-    UTF32LittleEndian = 0x9c000100,
-  };
-  
-  public enum NSStringCompareOptions : uint {
-    CaseInsensitiveSearch = 1,
-    LiteralSearch = 2,
-    BackwardsSearch = 4,
-    AnchoredSearch = 8,
-    NumericSearch = 64,
-    DiacriticInsensitiveSearch = 128,
-    WidthInsensitiveSearch = 256,
-    ForcedOrderingSearch = 512,
-    RegularExpressionSearch = 1024
-  }
-
-
-  public partial class NSString : NSObject {
+namespace RhinoMac.Foundation
+{
+  public class NSString : NSObject
+  {
     static readonly IntPtr selLength = Selector.GetHandle ("length");
-    static readonly IntPtr selSizeWithAttributes_ = Selector.GetHandle ("sizeWithAttributes:");
-    static readonly IntPtr selBoundingRectWithSizeOptionsAttributes_ = Selector.GetHandle ("boundingRectWithSize:options:attributes:");
-    static readonly IntPtr selDrawAtPointWithAttributes_ = Selector.GetHandle ("drawAtPoint:withAttributes:");
-    static readonly IntPtr selDrawInRectWithAttributes_ = Selector.GetHandle ("drawInRect:withAttributes:");
-    static readonly IntPtr selDrawWithRectOptionsAttributes_ = Selector.GetHandle ("drawWithRect:options:attributes:");
     static readonly IntPtr selCharacterAtIndex_ = Selector.GetHandle ("characterAtIndex:");
     static readonly IntPtr selHash = Selector.GetHandle ("hash");
     static readonly IntPtr selIsEqualToString_ = Selector.GetHandle ("isEqualToString:");
-    static readonly IntPtr selCompare_ = Selector.GetHandle ("compare:");
-    static readonly IntPtr selCompareOptions_ = Selector.GetHandle ("compare:options:");
-    static readonly IntPtr selCompareOptionsRange_ = Selector.GetHandle ("compare:options:range:");
-    static readonly IntPtr selCompareOptionsRangeLocale_ = Selector.GetHandle ("compare:options:range:locale:");
-    static readonly IntPtr selStringByReplacingCharactersInRangeWithString_ = Selector.GetHandle ("stringByReplacingCharactersInRange:withString:");
-    static readonly IntPtr selCapitalizedStringWithLocale_ = Selector.GetHandle ("capitalizedStringWithLocale:");
-    static readonly IntPtr selLowercaseStringWithLocale_ = Selector.GetHandle ("lowercaseStringWithLocale:");
-    static readonly IntPtr selUppercaseStringWithLocale_ = Selector.GetHandle ("uppercaseStringWithLocale:");
-    
+
     static readonly IntPtr class_ptr = Class.GetHandle ("NSString");
     
     public override IntPtr ClassHandle { get { return class_ptr; } }
 
-
     static IntPtr selUTF8String = Selector.sel_registerName ("UTF8String");
-    static IntPtr selInitWithUTF8String = Selector.sel_registerName ("initWithUTF8String:");
     static IntPtr selInitWithCharactersLength = Selector.sel_registerName ("initWithCharacters:length:");
     
     public static IntPtr CreateNative (string str)
@@ -105,8 +54,6 @@ namespace RhinoMac.Foundation {
 
     public unsafe override string ToString ()
     {
-      if (Handle == IntPtr.Zero)
-        return null;
       return FromHandle (Handle);
     }
     
@@ -142,11 +89,7 @@ namespace RhinoMac.Foundation {
       
       if (a.Handle == b.Handle)
         return true;
-#if GENERATOR || COREBUILD
-      return a.ToString ().Equals (b.ToString ());
-#else
       return a.IsEqualTo (b.Handle);
-#endif
     }
     
     public static bool operator == (NSString a, NSString b)
@@ -179,57 +122,11 @@ namespace RhinoMac.Foundation {
         Handle = RhinoMac.ObjCRuntime.Messaging.IntPtr_objc_msgSendSuper (this.SuperHandle, Selector.Init);
       }
     }
-    /*
-    public NSString (NSCoder coder) : base (NSObjectFlag.Empty)
-    {
-      if (IsDirectBinding) {
-        Handle = RhinoMac.ObjCRuntime.Messaging.IntPtr_objc_msgSend_IntPtr (this.Handle, Selector.InitWithCoder, coder.Handle);
-      } else {
-        Handle = RhinoMac.ObjCRuntime.Messaging.IntPtr_objc_msgSendSuper_IntPtr (this.SuperHandle, Selector.InitWithCoder, coder.Handle);
-      }
-    }
-    */
+
     internal NSString (NSObjectFlag t) : base (t) {}
     
     public NSString (IntPtr handle) : base (handle) {}
-    /*
-    public global::System.Drawing.SizeF StringSize (NSDictionary attributedStringAttributes)
-    {
-      global::System.Drawing.SizeF ret;
-      ret = RhinoMac.ObjCRuntime.Messaging.SizeF_objc_msgSend_IntPtr (this.Handle, selSizeWithAttributes_, attributedStringAttributes == null ? IntPtr.Zero : attributedStringAttributes.Handle);
-      return ret;
-    }
-    
-    public global::System.Drawing.RectangleF BoundingRectWithSize (global::System.Drawing.SizeF size, NSStringDrawingOptions options, NSDictionary attributes)
-    {
-      if (attributes == null)
-        throw new ArgumentNullException ("attributes");
-      global::System.Drawing.RectangleF ret;
-      RhinoMac.ObjCRuntime.Messaging.RectangleF_objc_msgSend_stret_SizeF_UInt32_IntPtr (out ret, this.Handle, selBoundingRectWithSizeOptionsAttributes_, size, (UInt32)options, attributes.Handle);
-      return ret;
-    }
-    
-    public void DrawString (global::System.Drawing.PointF point, NSDictionary attributes)
-    {
-      if (attributes == null)
-        throw new ArgumentNullException ("attributes");
-      RhinoMac.ObjCRuntime.Messaging.void_objc_msgSend_PointF_IntPtr (this.Handle, selDrawAtPointWithAttributes_, point, attributes.Handle);
-    }
-    
-    public void DrawString (global::System.Drawing.RectangleF rect, NSDictionary attributes)
-    {
-      if (attributes == null)
-        throw new ArgumentNullException ("attributes");
-      RhinoMac.ObjCRuntime.Messaging.void_objc_msgSend_RectangleF_IntPtr (this.Handle, selDrawInRectWithAttributes_, rect, attributes.Handle);
-    }
-    
-    public void DrawString (global::System.Drawing.RectangleF rect, NSStringDrawingOptions options, NSDictionary attributes)
-    {
-      if (attributes == null)
-        throw new ArgumentNullException ("attributes");
-      RhinoMac.ObjCRuntime.Messaging.void_objc_msgSend_RectangleF_UInt32_IntPtr (this.Handle, selDrawWithRectOptionsAttributes_, rect, (UInt32)options, attributes.Handle);
-    }
-    */
+
     public virtual global::System.Char _characterAtIndex (int index)
     {
       if (IsDirectBinding) {
@@ -353,8 +250,6 @@ namespace RhinoMac.Foundation {
           return RhinoMac.ObjCRuntime.Messaging.int_objc_msgSendSuper (this.SuperHandle, selLength);
         }
       }
-      
     }
-    
   } 
 }

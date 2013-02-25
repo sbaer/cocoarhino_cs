@@ -58,18 +58,11 @@
     <Compile Include="RhinoMac\ObjCRuntime\Messaging.cs" />
     <Compile Include="RhinoMac\ObjCRuntime\Runtime.cs" />
     <Compile Include="RhinoMac\ObjCRuntime\Class.cs" />
-    <Compile Include="RhinoMac\RequiredFrameworkAttribute.cs" />
-    <Compile Include="RhinoMac\AppKit\Enums.cs" />
-    <Compile Include="RhinoMac\Foundation\ExportAttribute.cs" />
-    <Compile Include="RhinoMac\ObjCRuntime\ArgumentSemantic.cs" />
-    <Compile Include="RhinoMac\ObjCRuntime\INativeObject.cs" />
     <Compile Include="RhinoMac\Foundation\NSAction.cs" />
     <Compile Include="RhinoMac\Foundation\NSObject.g.cs" />
-    <Compile Include="RhinoMac\Foundation\PreserveAttribute.cs" />
-    <Compile Include="RhinoMac\Foundation\RegisterAttribute.cs" />
-    <Compile Include="RhinoMac\AppKit\NSResponder.g.cs" />
-    <Compile Include="RhinoMac\AppKit\NSWindowController.g.cs" />
     <Compile Include="CocoaRhinoCommand.cs" />
+    <Compile Include="RhinoMac\ObjCRuntime\SendingMessages.cs" />
+    <Compile Include="RhinoMac\AppKit\NSResponder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

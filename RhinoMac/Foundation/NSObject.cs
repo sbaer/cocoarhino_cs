@@ -1,33 +1,11 @@
-//
-// Copyright 2010, Novell, Inc.
-//
-// Permission is hereby granted, free of charge, to any person obtaining
-// a copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to
-// permit persons to whom the Software is furnished to do so, subject to
-// the following conditions:
-// 
-// The above copyright notice and this permission notice shall be
-// included in all copies or substantial portions of the Software.
-// 
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-// LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-//
 using System;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-
 using RhinoMac.ObjCRuntime;
 
-namespace RhinoMac.Foundation {
+namespace RhinoMac.Foundation
+{
   public class NSObjectFlag {
     public static readonly NSObjectFlag Empty = null;
     
@@ -35,7 +13,8 @@ namespace RhinoMac.Foundation {
   }
   
   [StructLayout(LayoutKind.Sequential)]
-  public partial class NSObject : INativeObject, IDisposable {
+  public partial class NSObject : IDisposable
+  {
     public static readonly Assembly MonoMacAssembly = typeof (NSObject).Assembly;
     
     static IntPtr selAlloc = Selector.GetHandle ("alloc");
@@ -45,9 +24,7 @@ namespace RhinoMac.Foundation {
     static IntPtr selPerformSelectorWithObjectAfterDelay = Selector.GetHandle ("performSelector:withObject:afterDelay:");
     static IntPtr selRelease = Selector.GetHandle ("release");
     static IntPtr selRespondsToSelector = Selector.GetHandle ("respondsToSelector:");
-    static IntPtr selRetain = Selector.GetHandle ("retain");
-    static IntPtr selRetainCount = Selector.GetHandle ("retainCount");
-    
+
     private IntPtr handle;
     private IntPtr super;
     private IntPtr gchandle;
@@ -59,7 +36,6 @@ namespace RhinoMac.Foundation {
 #endif
     protected bool IsDirectBinding;
     
-    [Export ("init")]
     public NSObject () {
       AllocIfNeeded ();
       InitializeObject ();
@@ -86,7 +62,6 @@ namespace RhinoMac.Foundation {
       GC.SuppressFinalize (this);
     }
     
-    [Export ("respondsToSelector:")]
     public virtual bool RespondsToSelector (Selector sel) {
       if (sel == null)
         throw new ArgumentNullException ("sel");
@@ -97,7 +72,6 @@ namespace RhinoMac.Foundation {
       }
     }
     
-    [Export ("doesNotRecognizeSelector:")]
     public virtual void DoesNotRecognizeSelector (Selector sel) {
       if (sel == null)
         throw new ArgumentNullException ("sel");
@@ -255,7 +229,6 @@ namespace RhinoMac.Foundation {
       IsDirectBinding = true;
     }
     
-    [Export ("performSelector:withObject:afterDelay:")]
     public virtual void PerformSelector (Selector sel, NSObject obj, double delay) {
       if (sel == null)
         throw new ArgumentNullException ("sel");
@@ -276,7 +249,6 @@ namespace RhinoMac.Foundation {
       public IntPtr super;
     }
     
-    [Export ("awakeFromNib")]
     public virtual void AwakeFromNib ()
     {
       if (IsDirectBinding) {
@@ -317,7 +289,6 @@ namespace RhinoMac.Foundation {
     }
     
     
-    [Register ("__MonoMac_Disposer")][Preserve (AllMembers=true)]
     internal class MonoMac_Disposer : NSObject {
       static readonly List <IntPtr> direct_handles = new List<IntPtr> ();
       static readonly List <IntPtr> super_handles = new List<IntPtr> ();
@@ -349,7 +320,6 @@ namespace RhinoMac.Foundation {
         Messaging.void_objc_msgSend_intptr_intptr_bool (class_ptr, selPerformSelectorOnMainThreadWithObjectWaitUntilDone, selDrain, IntPtr.Zero, false);
       }
       
-      [Export ("drain:")]
       internal static void Drain (NSObject ctx) {
         List<IntPtr> direct = null;
         List<IntPtr> super = null;

@@ -4,7 +4,7 @@ namespace CocoaRhino_CS
 {
   public class CocoaRhinoCommand : Rhino.Commands.Command
   {
-    public override string EnglishName { get { return "TestCocoaRhinoCS"; } }
+    public override string EnglishName { get { return "TestCocoaRhinoCSharp"; } }
 
     protected override Rhino.Commands.Result RunCommand (Rhino.RhinoDoc doc, Rhino.Commands.RunMode mode)
     {

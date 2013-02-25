@@ -50,10 +50,10 @@ namespace RhinoMac
     public extern static uint uint_objc_msgSend (IntPtr receiver, IntPtr selector);
     
     [DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSend")]
-    public extern static int int_objc_msgSend (IntPtr receiver, IntPtr selector);
+    public extern static int objc_msgSend_int (IntPtr receiver, IntPtr selector);
 
     [DllImport (LIBOBJC_DYLIB, EntryPoint="sel_registerName")]
-    public extern static IntPtr GetHandle (string name);
+    public extern static IntPtr sel_registerName (string name);
 
   }
 }
