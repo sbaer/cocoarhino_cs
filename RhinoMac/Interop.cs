@@ -5,33 +5,27 @@ using System.Runtime.InteropServices;
 
 namespace RhinoMac
 {
-  /*
-  static class Selector
-  {
-    public static IntPtr GetHandle(string name)
-    {
-      return UnsafeNativeMethods.GetHandle(name);
-    }
-  }
-  */
-
   static class Interop
   {
+    static bool g_initialized = false;
+    public static void Initialize()
+    {
+      if( !g_initialized )
+      {
+        UnsafeNativeMethods.RUI_RegisterBoolCallbacks(m_getbool_callback, m_setbool_callback);
+        UnsafeNativeMethods.RUI_RegisterStringCallbacks(m_getstring_callback, m_setstring_callback);
+        UnsafeNativeMethods.RUI_RegisterActionCallback(m_perform_action);
+        UnsafeNativeMethods.RUI_RegisterWindowWillCloseCallback(m_willclose_callback);
+      }
+    }
+
     public static void RegisterRhinoWindowController(IntPtr pController, INotifyPropertyChanged viewmodel)
     {
+      Initialize();
       m_all_controllers.Add(pController, viewmodel);
     }
     
-    public static void Init()
-    {
-      UnsafeNativeMethods.RUI_RegisterBoolCallbacks(m_getbool_callback, m_setbool_callback);
-      UnsafeNativeMethods.RUI_RegisterStringCallbacks(m_getstring_callback, m_setstring_callback);
-      UnsafeNativeMethods.RUI_RegisterActionCallback(m_perform_action);
-      UnsafeNativeMethods.RUI_RegisterWindowWillCloseCallback(m_willclose_callback);
-//      UnsafeNativeMethods.RUI_RegisterPropertyTypeCallback(m_propertytype_callback);
-//      UnsafeNativeMethods.RUI_RegisterActionExistsCallback(m_actionexists_callback);
-    }
-    
+
     internal delegate int GetBoolValueCallback(IntPtr handle, [MarshalAs(UnmanagedType.LPWStr)]string name);
     internal delegate void SetBoolValueCallback(IntPtr handle, [MarshalAs(UnmanagedType.LPWStr)]string name, int value);
     [return: MarshalAs(UnmanagedType.LPWStr)]
@@ -50,9 +44,7 @@ namespace RhinoMac
     static SetStringValueCallback m_setstring_callback = SetStringCalledFromC;
     static PerformActionCallback m_perform_action = PerformActionCalledFromC;
     static WindowWillCloseCallback m_willclose_callback = WindowWillCloseCalledFromC;
-    static PropertyTypeCallback m_propertytype_callback = PropertyTypeCalledFromC;
-    static ActionExistsCallback m_actionexists_callback = ActionExistsCalledFromC;
-    
+
     static int GetBoolCalledFromC(IntPtr pController, string name)
     {
       int rc = 0;
@@ -163,4 +155,3 @@ namespace RhinoMac
     
   }
 }
-

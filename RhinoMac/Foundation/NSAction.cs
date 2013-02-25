@@ -31,7 +31,6 @@ namespace RhinoMac.Foundation {
 	public delegate void NSAction ();
 
 	// Use this for synchronous operations
-	[Register ("__MonoMac_NSActionDispatcher")]
 	internal sealed class NSActionDispatcher : NSObject {
 
 		public static readonly Selector Selector = new Selector ("apply");
@@ -46,8 +45,6 @@ namespace RhinoMac.Foundation {
 			this.action = action;
 		}
 
-		[Export ("apply")]
-		[Preserve (Conditional = true)]
 		public void Apply ()
 		{
 			action ();
@@ -55,7 +52,6 @@ namespace RhinoMac.Foundation {
 	}
 
 	// Use this for asynchronous operations
-	[Register ("__MonoMac_NSAsyncActionDispatcher")]
 	internal class NSAsyncActionDispatcher : NSObject {
 		GCHandle gch;
 		NSAction action;
@@ -79,8 +75,6 @@ namespace RhinoMac.Foundation {
 			gch = GCHandle.Alloc (this);
 		}
 
-		[Export ("apply")]
-		[Preserve (Conditional = true)]
 		public void Apply ()
 		{
 			try {
@@ -88,19 +82,6 @@ namespace RhinoMac.Foundation {
 			} finally {
 				action = null; // this is a one-shot dispatcher
 				gch.Free ();
-
-				//
-				// Although I would like to call Dispose here, to
-				// reduce the load on the GC, we have some useful diagnostic
-				// code in our runtime that is useful to track down
-				// problems, so we are removing the Dispose and letting
-				// the GC and our pipeline do their job.
-				// 
-#if MONOTOUCH
-				// MonoTouch has fixed the above problems, and we can call
-				// Dispose here.
-				Dispose ();
-#endif
 			}
 		}
 	}

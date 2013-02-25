@@ -8,52 +8,36 @@ namespace RhinoMac
 {
   public class RhinoWindow : AppKit.NSWindow
   {
-    IntPtr m_pWindow = IntPtr.Zero;
-    IntPtr m_pController = IntPtr.Zero;
+    IntPtr m_pDNWindowController = IntPtr.Zero; // DNWindowController*
 
     public static RhinoWindow FromNib(string nib, INotifyPropertyChanged viewModel)
     {
-      Interop.Init();
       var pi = Rhino.PlugIns.PlugIn.Find(viewModel.GetType().Assembly);
-
-      IntPtr pController = UnsafeNativeMethods.RUI_CreateWindow(nib, pi.Id);
-      if( pController==IntPtr.Zero )
+      IntPtr pDNWindowController = UnsafeNativeMethods.RUI_CreateWindow(nib, pi.Id);
+      if( pDNWindowController==IntPtr.Zero )
         return null;
-      Interop.RegisterRhinoWindowController(pController, viewModel);
-      IntPtr pWindow = UnsafeNativeMethods.RUI_GetWindow(pController);
-      RhinoWindow rc = new RhinoWindow(viewModel, pController, pWindow);
+      Interop.RegisterRhinoWindowController(pDNWindowController, viewModel);
+      IntPtr pWindow = UnsafeNativeMethods.RUI_GetWindow(pDNWindowController);
+      RhinoWindow rc = new RhinoWindow(viewModel, pDNWindowController, pWindow);
       return rc;
     }
 
-    public static IntPtr CreateController(string nib, INotifyPropertyChanged viewModel)
+    RhinoWindow(INotifyPropertyChanged viewmodel, IntPtr pController, IntPtr pWindow)
+      : base(pWindow)
     {
-      Interop.Init();
-      string ass_loc = viewModel.GetType().Assembly.Location;
-      string ass_dir = System.IO.Path.GetDirectoryName(ass_loc);
-      string nib_path = System.IO.Path.Combine(ass_dir, nib);
-      IntPtr pController = UnsafeNativeMethods.RUI_CreateWindow(nib, Guid.Empty);
-      if( pController==IntPtr.Zero )
-        return IntPtr.Zero;
-      Interop.RegisterRhinoWindowController(pController, viewModel);
-      return pController;
-    }
-
-    RhinoWindow(INotifyPropertyChanged viewmodel, IntPtr pController, IntPtr pWindow) : base(pWindow)
-    {
-      m_pController = pController;
-      m_pWindow = pWindow;
+      m_pDNWindowController = pController;
       ViewModel = viewmodel;
       ViewModel.PropertyChanged += HandlePropertyChanged;
     }
 
     void HandlePropertyChanged (object sender, PropertyChangedEventArgs e)
     {
-      if( m_pController!=IntPtr.Zero )
-        UnsafeNativeMethods.RUI_ValueChanged(m_pController, e.PropertyName);
+      if( m_pDNWindowController!=IntPtr.Zero )
+        UnsafeNativeMethods.RUI_ValueChanged(m_pDNWindowController, e.PropertyName);
     }
 
     public INotifyPropertyChanged ViewModel { get; private set; }
-    public IntPtr ControllerHandle { get { return m_pController; } }
+    IntPtr ControllerHandle { get { return m_pDNWindowController; } }
 
     public void ShowModal()
     {

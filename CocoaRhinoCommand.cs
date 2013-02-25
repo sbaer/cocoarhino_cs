@@ -10,7 +10,6 @@ namespace CocoaRhino_CS
     {
       var vm = new DNViewModel();
       var win = RhinoMac.RhinoWindow.FromNib("CocoaRhinoWindow", vm);
-
       win.ShowModal();
 
       return Rhino.Commands.Result.Success;

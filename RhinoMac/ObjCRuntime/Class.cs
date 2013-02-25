@@ -6,7 +6,8 @@ using System.Runtime.InteropServices;
 using RhinoMac.Foundation;
 
 namespace RhinoMac.ObjCRuntime {
-  public class Class /*: INativeObject*/ {
+  public class Class
+  {
 #if OBJECT_REF_TRACKING
     static NativeMethodBuilder release_builder = new NativeMethodBuilder (typeof (NSObject).GetMethod ("NativeRelease", BindingFlags.NonPublic | BindingFlags.Instance));
     static NativeMethodBuilder retain_builder = new NativeMethodBuilder (typeof (NSObject).GetMethod ("NativeRetain", BindingFlags.NonPublic | BindingFlags.Instance));
