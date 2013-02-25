@@ -17,3 +17,5 @@ CocoaRhino_CS.userprefs
 /wpf_sample/bin
 .DS_Store
 CocoaRhinoWindow.nib
+
+*.orig
