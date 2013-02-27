@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace RhinoMac
 {
-  public class RhinoWindow : AppKit.NSWindow
+  public class RhinoWindow : MonoMac.AppKit.NSWindow
   {
     IntPtr m_pDNWindowController = IntPtr.Zero; // DNWindowController*
 

@@ -10,10 +10,22 @@ namespace CocoaRhino_CS
     {
       var vm = new DNViewModel();
       var win = RhinoMac.RhinoWindow.FromNib("CocoaRhinoWindow", vm);
+      win.Title = "On the fly";
+      var rect = new System.Drawing.RectangleF(10, 100, 200, 50);
+      var btn = new MonoMac.AppKit.NSButton(rect);
+      //IntPtr selSetFrame_ = RhinoMac.ObjCRuntime.Selector.GetHandle ("setFrame:");
+      //MonoMac.ObjCRuntime.Messaging.void_objc_msgSend_cgrect(btn.Handle, selSetFrame_, rect);
+
+      win.ContentView.AddSubview(btn);
+      btn.Title = "On the fly";
+      btn.SetButtonType(MonoMac.AppKit.NSButtonType.MomentaryLightButton);
+      btn.BezelStyle = MonoMac.AppKit.NSBezelStyle.Rounded;
+      btn.Activated += (object sender, EventArgs e) => Rhino.RhinoApp.WriteLine("I got click!!!");
       win.ShowModal();
 
       return Rhino.Commands.Result.Success;
     }
+
   }
 }
 

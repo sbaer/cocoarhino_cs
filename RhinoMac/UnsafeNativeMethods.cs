@@ -3,6 +3,15 @@ using System.Runtime.InteropServices;
 
 namespace RhinoMac
 {
+  [StructLayout(LayoutKind.Sequential)]
+  public struct CGRect
+  {
+    public double left;
+    public double top;
+    public double width;
+    public double height;
+  }
+
   [System.Security.SuppressUnmanagedCodeSecurity]
   static class UnsafeNativeMethods
   {
@@ -51,6 +60,9 @@ namespace RhinoMac
     
     [DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSend")]
     public extern static int objc_msgSend_int (IntPtr receiver, IntPtr selector);
+
+    [DllImport (LIBOBJC_DYLIB, EntryPoint="objc_msgSend")]
+    public extern static void objc_msgSend_cgrect (IntPtr receiver, IntPtr selector, CGRect rect);
 
     [DllImport (LIBOBJC_DYLIB, EntryPoint="sel_registerName")]
     public extern static IntPtr sel_registerName (string name);

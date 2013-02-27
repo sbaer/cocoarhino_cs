@@ -42,6 +42,9 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="MonoMac">
+      <HintPath>References\MonoMac.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -63,6 +66,7 @@
     <Compile Include="CocoaRhinoCommand.cs" />
     <Compile Include="RhinoMac\ObjCRuntime\SendingMessages.cs" />
     <Compile Include="RhinoMac\AppKit\NSResponder.cs" />
+    <Compile Include="RhinoMac\AppKit\NSView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
