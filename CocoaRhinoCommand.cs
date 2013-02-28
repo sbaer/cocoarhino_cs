@@ -14,7 +14,6 @@ namespace CocoaRhino_CS
       var rect = new System.Drawing.RectangleF(10, 100, 200, 50);
       var btn = new MonoMac.AppKit.NSButton(rect);
 
-
       win.ContentView.AddSubview(btn);
       btn.Title = "On the fly";
       btn.SetButtonType(MonoMac.AppKit.NSButtonType.MomentaryLightButton);
@@ -24,7 +23,6 @@ namespace CocoaRhino_CS
 
       return Rhino.Commands.Result.Success;
     }
-
   }
 }
 

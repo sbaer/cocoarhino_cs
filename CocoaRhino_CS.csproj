@@ -54,20 +54,8 @@
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="RhinoMac\RhinoWindow.cs" />
     <Compile Include="RhinoMac\Interop.cs" />
-    <Compile Include="RhinoMac\AppKit\NSWindow.cs" />
-    <Compile Include="RhinoMac\Foundation\NSString.cs" />
     <Compile Include="RhinoMac\UnsafeNativeMethods.cs" />
-    <Compile Include="RhinoMac\Foundation\NSObject.cs" />
-    <Compile Include="RhinoMac\ObjCRuntime\Selector.cs" />
-    <Compile Include="RhinoMac\ObjCRuntime\Messaging.cs" />
-    <Compile Include="RhinoMac\ObjCRuntime\Runtime.cs" />
-    <Compile Include="RhinoMac\ObjCRuntime\Class.cs" />
-    <Compile Include="RhinoMac\Foundation\NSAction.cs" />
-    <Compile Include="RhinoMac\Foundation\NSObject.g.cs" />
     <Compile Include="CocoaRhinoCommand.cs" />
-    <Compile Include="RhinoMac\ObjCRuntime\SendingMessages.cs" />
-    <Compile Include="RhinoMac\AppKit\NSResponder.cs" />
-    <Compile Include="RhinoMac\AppKit\NSView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -75,8 +63,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RhinoMac\" />
-    <Folder Include="RhinoMac\AppKit\" />
-    <Folder Include="RhinoMac\Foundation\" />
-    <Folder Include="RhinoMac\ObjCRuntime\" />
   </ItemGroup>
 </Project>
