@@ -13,8 +13,7 @@ namespace CocoaRhino_CS
       win.Title = "On the fly";
       var rect = new System.Drawing.RectangleF(10, 100, 200, 50);
       var btn = new MonoMac.AppKit.NSButton(rect);
-      //IntPtr selSetFrame_ = RhinoMac.ObjCRuntime.Selector.GetHandle ("setFrame:");
-      //MonoMac.ObjCRuntime.Messaging.void_objc_msgSend_cgrect(btn.Handle, selSetFrame_, rect);
+
 
       win.ContentView.AddSubview(btn);
       btn.Title = "On the fly";

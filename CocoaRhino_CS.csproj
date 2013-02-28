@@ -44,6 +44,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="MonoMac">
       <HintPath>References\MonoMac.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
