@@ -11,9 +11,10 @@ namespace CocoaRhino_CS
       var vm = new DNViewModel();
       var win = RhinoMac.RhinoWindow.FromNib("CocoaRhinoWindow", vm);
       win.Title = "On the fly";
-      var rect = new System.Drawing.RectangleF(10, 100, 200, 50);
-			var btn = new CustomButton (rect);// MonoMac.AppKit.NSButton(rect);
 
+      var rect = new System.Drawing.RectangleF(10, 100, 200, 50);
+      //var btn = new MonoMac.AppKit.NSButton (rect);
+			var btn = new CustomButton(rect);
       win.ContentView.AddSubview(btn);
       btn.Title = "On the fly";
       btn.SetButtonType(MonoMac.AppKit.NSButtonType.MomentaryLightButton);
@@ -25,7 +26,7 @@ namespace CocoaRhino_CS
     }
   }
 
-	class CustomButton : MonoMac.AppKit.NSButton
+  class CustomButton : MonoMac.AppKit.NSButton
 	{
 		public CustomButton(System.Drawing.RectangleF r):base(r){
 		}

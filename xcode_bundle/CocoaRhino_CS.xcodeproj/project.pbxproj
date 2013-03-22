@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA8A7CCA16D7D9660021E033 /* CocoaRhinoWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8A7CC916D7D9660021E033 /* CocoaRhinoWindowController.m */; };
 		D604BDED169762660079BCDE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D604BDEC169762660079BCDE /* Cocoa.framework */; };
 		D604BDF7169762660079BCDE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D604BDF5169762660079BCDE /* InfoPlist.strings */; };
 		D604BE07169765200079BCDE /* CocoaRhinoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D604BE06169765200079BCDE /* CocoaRhinoWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AA8A7CC616D7D89D0021E033 /* CocoaRhinoWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaRhinoWindowController.h; sourceTree = "<group>"; };
-		AA8A7CC916D7D9660021E033 /* CocoaRhinoWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaRhinoWindowController.m; sourceTree = "<group>"; };
 		D604BDE9169762660079BCDE /* CocoaRhino_CS.rhp */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaRhino_CS.rhp; sourceTree = BUILT_PRODUCTS_DIR; };
 		D604BDEC169762660079BCDE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D604BDEF169762660079BCDE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -97,9 +94,7 @@
 		D604BE05169764E00079BCDE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AA8A7CC916D7D9660021E033 /* CocoaRhinoWindowController.m */,
 				D604BE06169765200079BCDE /* CocoaRhinoWindow.xib */,
-				AA8A7CC616D7D89D0021E033 /* CocoaRhinoWindowController.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -184,7 +179,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA8A7CCA16D7D9660021E033 /* CocoaRhinoWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
