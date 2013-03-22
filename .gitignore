@@ -21,3 +21,5 @@ CocoaRhinoWindow.nib
 /wpf_sample/obj
 /wpf_sample/bin
 >>>>>>> added WPF sample that works the same as the OSX plug-in
+
+*.xcuserstate
