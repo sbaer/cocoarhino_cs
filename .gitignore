@@ -19,3 +19,5 @@ CocoaRhino_CS.userprefs
 CocoaRhinoWindow.nib
 
 *.orig
+
+*.xcuserstate
