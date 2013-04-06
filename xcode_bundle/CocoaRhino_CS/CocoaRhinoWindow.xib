@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
-		<string key="IBDocument.SystemVersion">12C2034</string>
+		<string key="IBDocument.SystemVersion">12D78</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			<string key="NS.object.0">3084</string>
@@ -196,7 +196,7 @@
 												<string>WebURLsWithTitlesPboardType</string>
 												<string>public.url</string>
 											</set>
-											<string key="NSFrameSize">{224, 193}</string>
+											<string key="NSFrameSize">{254, 193}</string>
 											<reference key="NSSuperview" ref="844687059"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="928556177"/>
@@ -227,7 +227,7 @@
 													<nil key="NSDelegate"/>
 												</object>
 												<reference key="NSTextView" ref="490251622"/>
-												<double key="NSWidth">224</double>
+												<double key="NSWidth">254</double>
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
@@ -276,11 +276,10 @@
 											</object>
 											<int key="NSTVFlags">6</int>
 											<string key="NSMaxSize">{463, 10000000}</string>
-											<string key="NSMinize">{254, 193}</string>
 											<nil key="NSDelegate"/>
 										</object>
 									</array>
-									<string key="NSFrame">{{1, 1}, {254, 193}}</string>
+									<string key="NSFrame">{{1, 1}, {269, 193}}</string>
 									<reference key="NSSuperview" ref="925831177"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="490251622"/>
@@ -445,7 +444,7 @@ wGw</bytes>
 								<object class="NSScroller" id="928556177">
 									<reference key="NSNextResponder" ref="925831177"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{255, 1}, {15, 193}}</string>
+									<string key="NSFrame">{{254, 1}, {16, 193}}</string>
 									<reference key="NSSuperview" ref="925831177"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="264861295"/>
@@ -491,7 +490,7 @@ wGw</bytes>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="547825991"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -508,6 +507,26 @@ wGw</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">argument: self</string>
+						<reference key="source" ref="264861295"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector" id="1008896432">
+							<reference key="NSSource" ref="264861295"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">argument: self</string>
+							<string key="NSBinding">argument</string>
+							<string key="NSKeyPath">self</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSSelectorName</string>
+								<string key="NS.object.0">pushme:</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">153</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">target: self</string>
 						<reference key="source" ref="264861295"/>
 						<reference key="destination" ref="1001"/>
@@ -521,10 +540,11 @@ wGw</bytes>
 								<string key="NS.key.0">NSSelectorName</string>
 								<string key="NS.object.0">pushme:</string>
 							</object>
+							<reference key="NSPreviousConnector" ref="1008896432"/>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">34</int>
+					<int key="connectionID">154</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1024,7 +1044,7 @@ wGw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">152</int>
+			<int key="maxID">156</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
