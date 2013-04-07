@@ -37,16 +37,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="RhinoCommon">
-      <HintPath>References\RhinoCommon.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
     <Reference Include="MonoMac">
-      <HintPath>References\MonoMac.dll</HintPath>
+      <HintPath>..\..\..\..\Library\Developer\Xcode\DerivedData\MacRhino-cmcylmdsanwskkbmdpzbysucsuxc\Build\Products\Debug\Rhinoceros.app\Contents\Resources\MonoMac.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Core" />
+    <Reference Include="RhinoCommon">
+      <HintPath>..\..\..\..\Library\Developer\Xcode\DerivedData\MacRhino-cmcylmdsanwskkbmdpzbysucsuxc\Build\Products\Debug\Rhinoceros.app\Contents\Resources\RhinoCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
