@@ -10,13 +10,13 @@ namespace CocoaRhino_CS
     {
       MonoMac.ObjCRuntime.Runtime.RegisterAssembly (this.GetType ().Assembly);
       var vm = new DNViewModel();
-      var win = RhinoMac.RhinoWindow.FromNib("CocoaRhinoWindow", vm);
+      var win = RhinoMac.Window.FromNib("CocoaRhinoWindow", vm);
 
       win.Title = "On the fly";
 
       var rect = new System.Drawing.RectangleF(10, 100, 200, 50);
       //var btn = new MonoMac.AppKit.NSButton (rect);
-			var btn = new CustomButton(rect);
+      var btn = new CustomButton(rect);
 
       win.ContentView.AddSubview(btn);
       btn.Title = "On the fly";
@@ -46,18 +46,19 @@ namespace CocoaRhino_CS
   }
 
   public class CustomButton : MonoMac.AppKit.NSButton
-	{
-		public CustomButton(System.Drawing.RectangleF r):base(r){
-		}
+  {
+    public CustomButton(System.Drawing.RectangleF r):base(r)
+    {
+    }
 
-		public override void DrawRect (MonoMac.Foundation.NSRect dirtyRect)
-		{
-			base.DrawRect (dirtyRect);
-			var context = MonoMac.AppKit.NSGraphicsContext.CurrentContext.GraphicsPort;
-			context.SetFillColor (new MonoMac.CoreGraphics.CGColor (1, 0, 0));
-			context.FillRect (new System.Drawing.RectangleF (5, 5, 10, 10));
-			//base.DrawRect (dirtyRect);
-		}
-	}
+    public override void DrawRect (MonoMac.Foundation.NSRect dirtyRect)
+    {
+      base.DrawRect (dirtyRect);
+      var context = MonoMac.AppKit.NSGraphicsContext.CurrentContext.GraphicsPort;
+      context.SetFillColor (new MonoMac.CoreGraphics.CGColor (1, 0, 0));
+      context.FillRect (new System.Drawing.RectangleF (5, 5, 10, 10));
+      //base.DrawRect (dirtyRect);
+    }
+  }
 }
 
